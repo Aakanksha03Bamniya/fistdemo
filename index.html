@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <div id="main"> 
-        <h1 id="header">Fruit Shop</h1> 
+    <div id="main">
+        <h1 id="header">Fruit Shop</h1>
         <br>
 
         <br>
-       <div>
-        <h4 id="fruits">Fruits In Basket</h4>
-        <ul class="fruity">
-            
-        <li class="fruit">Banana</li>
-        <li class="fruit">Apple</li>
-        <li class="fruit" id="org">Orange</li>
-        <li class="fruit">Kiwi</li>
-        </ul>
+        <div>
+            <h4 id="fruits">Fruits In Basket</h4>
+            <ul class="fruity">
 
-    </div> 
+                <li class="fruit">Banana</li>
+                <li class="fruit">Apple</li>
+                <li class="fruit" id="org">Orange</li>
+                <li class="fruit">Kiwi</li>
+            </ul>
+
+        </div>
 
         <br>
 
@@ -30,37 +32,54 @@
     </div>
 
 
+    <script>
+        let headers = document.querySelector('#header')
+        headers.style.textAlign= 'center'
+        let header = document.getElementById('header')
+        header.style.backgroundColor = ' yellow'
+        header.style.textContent = 'Fruit World'
+
+        let p = document.getElementById('p')
+        p.style.fontStyle = 'Italic'
+        p.style.color = 'red'
+
+        let org = document.getElementById('org')
+        org.style.backgroundColor = 'yellow'
+
+        let fru = document.getElementById("fruits")
+        fru.style.color = 'blue'
+        fru.style.fontStyle = 'Italic'
+
+        let frut = document.getElementsByTagName('li')
+        frut[1].style.color = 'green'
+        for (let i = 0; i < frut.length; i++) {
+            frut[i].style.fontWeight = 'Bold'
+        }
+
+
+        let fruitItem = document.querySelectorAll('.fruit')
+        for (let i=0; i<fruitItem.length; i++ ){
+            fruitItem[i].style.backgroundColor='grey'
+            fruitItem[i].style.pedding='10px'
+            fruitItem[i].style.boarderRadius='5px'
+            fruitItem[i].style.margin='10px'
+
+        }
+        
+        let OddfruitItem = document.querySelectorAll('.fruit:nth-child(odd)')
+        for(let i=0; i<OddfruitItem.length;i++){    
+            OddfruitItem[i].style.backgroundColor='red'
+
+
+        }
 
 
 
-<script>
-    let header = document.getElementById('header')
-    header.style.backgroundColor = ' yellow'
-    header.style.textContent = 'Fruit World'
-
-    let p = document.getElementById('p')
-    p.style.fontStyle= 'Italic'
-    p.style.color = 'red'
-
-    let org = document.getElementById('org')
-    org.style.backgroundColor='yellow'
-
-    let fru = document.getElementById("fruits")
-    fru.style.color = 'blue'
-    fru.style.fontStyle= 'Italic'
-
-
- 
-  
-/*   let fruit = document.getElementsByClassName('fruity')
-   fruit.style.color = 'pink' */
 
 
 
-    
 
-
-
-</script>
+    </script>
 </body>
+
 </html>
