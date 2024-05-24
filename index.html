@@ -10,18 +10,20 @@
 
 <body>
     <div id="main">
+    
         <h1 id="header">Fruit Shop</h1>
-        <br>
-
+        <input type="text" name="Fruitss" id="filter">
+        
+        
         <br>
         <div>
             <form id="form">
                 <label for="add-fruit">Add Fruit:</label>
                 <input type="text" name="fruit" id="add-fruit">
                 <button type="submit">Add</button>
-              </form>
+            </form>
 
-              
+
             <ul class="fruity">
 
                 <li class="fruit">Banana <button class="del-btn" type="button">Delete</button>
@@ -83,11 +85,11 @@
 
         const form = document.getElementById('form')
         const fruits = document.querySelector('.fruity')
-        form.addEventListener('submit',()=>{
+        form.addEventListener('submit', () => {
             event.preventDefault();
-            const fruitAdd= document.getElementById('add-fruit');
+            const fruitAdd = document.getElementById('add-fruit');
             const newLi = document.createElement('li')
-            newLi.innerHTML= fruitAdd + ' <button class="del-btn" type="button">Delete</button>'
+            newLi.innerHTML = fruitAdd + ' <button class="del-btn" type="button">Delete</button>'
             /*const newLiText = document.createTextNode(fruitAdd.value);
             newLi.appendChild(newLiText)
             newLi.className='fruit'
@@ -105,7 +107,7 @@
 
         })
 
-        
+
         fruits.addEventListener('click', (event) => {
             // Check if the clicked element has the class 'del-btn'
             if (event.target.classList.contains('del-btn')) {
@@ -116,7 +118,25 @@
             }
         });
 
+        const filter= document.getElementById('filter')
+        filter.addEventListener('keyup',function(event){
+           const textEntered = event.target.value.toLowerCase()
+           const fruitItem = document.getElementsByClassName('fruit')
+           for (let i =0; i<fruitItem.length;i++){
+            const currentFruit = fruitItem[i].firstChild.textContent.toLowerCase()
+            if(currentFruit.indexOf(textEntered)=== -1){
+                fruitItem[i].style.display = 'none'
+            }
+            else{
+                fruitItem[i].style.display = 'flex'
 
+            }
+           }
+          
+
+
+        }
+        )
 
 
 
