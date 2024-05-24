@@ -87,7 +87,8 @@
             event.preventDefault();
             const fruitAdd= document.getElementById('add-fruit');
             const newLi = document.createElement('li')
-            const newLiText = document.createTextNode(fruitAdd.value);
+            newLi.innerHTML= fruitAdd + ' <button class="del-btn" type="button">Delete</button>'
+            /*const newLiText = document.createTextNode(fruitAdd.value);
             newLi.appendChild(newLiText)
             newLi.className='fruit'
             console.log(fruitAdd.value)
@@ -96,12 +97,24 @@
             const delBtnText= document.createTextNode('Delete')
             deletebtn.appendChild(delBtnText)
             deletebtn.className='del-btn'
-            
+
             newLi.appendChild(deletebtn)
             fruits.appendChild(newLi)
+            */
+
 
         })
 
+        
+        fruits.addEventListener('click', (event) => {
+            // Check if the clicked element has the class 'del-btn'
+            if (event.target.classList.contains('del-btn')) {
+                // Get the parent element of the clicked element
+                const detFru = event.target.parentElement;
+                // Remove the parent element from the fruits list
+                fruits.removeChild(detFru);
+            }
+        });
 
 
 
