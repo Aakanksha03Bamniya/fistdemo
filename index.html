@@ -15,13 +15,23 @@
 
         <br>
         <div>
-            <h4 id="fruits">Fruits In Basket</h4>
+            <form id="form">
+                <label for="add-fruit">Add Fruit:</label>
+                <input type="text" name="fruit" id="add-fruit">
+                <button type="submit">Add</button>
+              </form>
+
+              
             <ul class="fruity">
 
-                <li class="fruit">Banana</li>
-                <li class="fruit">Apple</li>
-                <li class="fruit" id="org">Orange</li>
-                <li class="fruit">Kiwi</li>
+                <li class="fruit">Banana <button class="del-btn" type="button">Delete</button>
+                </li>
+                <li class="fruit">Apple <button class="del-btn" type="button">Delete</button>
+                </li>
+                <li class="fruit" id="org">Orange <button class="del-btn" type="button">Delete</button>
+                </li>
+                <li class="fruit">Kiwi <button class="del-btn" type="button">Delete</button>
+                </li>
             </ul>
 
         </div>
@@ -34,7 +44,7 @@
 
     <script>
         let headers = document.querySelector('#header')
-        headers.style.textAlign= 'center'
+        headers.style.textAlign = 'center'
         let header = document.getElementById('header')
         header.style.backgroundColor = ' yellow'
         header.style.textContent = 'Fruit World'
@@ -46,9 +56,6 @@
         let org = document.getElementById('org')
         org.style.backgroundColor = 'yellow'
 
-        let fru = document.getElementById("fruits")
-        fru.style.color = 'blue'
-        fru.style.fontStyle = 'Italic'
 
         let frut = document.getElementsByTagName('li')
         frut[1].style.color = 'green'
@@ -58,20 +65,42 @@
 
 
         let fruitItem = document.querySelectorAll('.fruit')
-        for (let i=0; i<fruitItem.length; i++ ){
-            fruitItem[i].style.backgroundColor='grey'
-            fruitItem[i].style.pedding='10px'
-            fruitItem[i].style.boarderRadius='5px'
-            fruitItem[i].style.margin='10px'
+        for (let i = 0; i < fruitItem.length; i++) {
+            fruitItem[i].style.backgroundColor = 'grey'
+            fruitItem[i].style.pedding = '10px'
+            fruitItem[i].style.boarderRadius = '5px'
+            fruitItem[i].style.margin = '10px'
 
         }
-        
+
         let OddfruitItem = document.querySelectorAll('.fruit:nth-child(odd)')
-        for(let i=0; i<OddfruitItem.length;i++){    
-            OddfruitItem[i].style.backgroundColor='red'
+        for (let i = 0; i < OddfruitItem.length; i++) {
+            OddfruitItem[i].style.backgroundColor = 'pink'
 
 
         }
+
+
+        const form = document.getElementById('form')
+        const fruits = document.querySelector('.fruity')
+        form.addEventListener('submit',()=>{
+            event.preventDefault();
+            const fruitAdd= document.getElementById('add-fruit');
+            const newLi = document.createElement('li')
+            const newLiText = document.createTextNode(fruitAdd.value);
+            newLi.appendChild(newLiText)
+            newLi.className='fruit'
+            console.log(fruitAdd.value)
+
+            const deletebtn = document.createElement('button')
+            const delBtnText= document.createTextNode('Delete')
+            deletebtn.appendChild(delBtnText)
+            deletebtn.className='del-btn'
+            
+            newLi.appendChild(deletebtn)
+            fruits.appendChild(newLi)
+
+        })
 
 
 
